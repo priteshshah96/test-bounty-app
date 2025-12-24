@@ -1,0 +1,13 @@
+{
+  "name": "test-bounty-app",
+  "version": "1.0.0",
+  "description": "Test app for CodeBounty AI features",
+  "dependencies": {
+    "react": "^18.2.0",
+    "react-dom": "^18.2.0"
+  },
+  "scripts": {
+    "start": "react-scripts start"
+  }
+}
+
