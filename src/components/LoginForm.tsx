@@ -1,6 +1,5 @@
 import { useState } from 'react';
-// BUG: Incorrect import path - should be '../services/AuthService'
-import { AuthService } from './services/AuthService';
+import { AuthService } from '../services/AuthService';
 
 export default function LoginForm() {
   const [email, setEmail] = useState('');
@@ -13,9 +12,9 @@ export default function LoginForm() {
     setError('');
     
     try {
-      // BUG: This will throw TypeError because AuthService import failed
-      // Error: "Cannot read property 'authenticate' of undefined"
-      await AuthService.authenticate(email, password);
+      // BUG: AuthService.authenticate is undefined at runtime
+      // This will throw: TypeError: AuthService.authenticate is not a function
+      await (AuthService as any).authenticateUser(email, password);
       alert('Login successful!');
     } catch (err) {
       setError('Login failed. Please try again.');
